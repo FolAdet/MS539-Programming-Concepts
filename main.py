@@ -1,10 +1,14 @@
-
+import random
+import sys
 #starting adventurere stats
 health = 100
 oxygen = 100
 power = 50
 survivalPoints = 0
 timeRemaining = 45
+keycard = False
+ammunition = False
+electricalTool = False
 
 #function that diplays current stat of the adventurer
 def display_statistics(health, oxygen, power, survivalPoints, timeRemaining):
@@ -187,7 +191,9 @@ You climb onto a medical cabinet and remove the ventilation cover. Something rus
 
 #this will take the user choice and store it as a variable
 user_choice = input("Enter your choice ( A, B, C): ").strip().upper()
-
+while user_choice not in ["A", "B", "C"]:
+    print("Invalid input. Please choose A, B, or C.")
+    user_choice = input("Enter your choice (A, B, or C): ").strip().upper()
 #evaluate the user choice and update the score, health, and oxygen
 if user_choice == "A":
     survivalPoints += exCh
@@ -214,3 +220,280 @@ elif user_choice == "C":
     #displays stats
     display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
 
+
+#scenerio two
+print("-"*80)
+print("""
+Scenario 2: The Security Checkpoint
+You enter the main corridor.
+
+The lights flicker, and the emergency announcement system begins repeating the same message:
+
+"Warning. Unauthorized biological presence detected. Lockdown in progress."
+
+At the end of the corridor, you see a security checkpoint. A locked door separates you from the central operations deck.
+
+You notice three possible ways forward.
+
+What do you do?
+A 
+Choice A: Search the security officer's body from the medical bay, if you haven't already.
+
+
+B
+Choice B: Attempt to bypass the security terminal.
+
+C 
+Choice C: Force the security door open.
+""")
+#this will take the user choice and store it as a variable
+user_choice = input("Enter your choice ( A, B, C): ").strip().upper()
+while user_choice not in ["A", "B", "C"]:
+    print("Invalid input. Please choose A, B, or C.")
+    user_choice = input("Enter your choice (A, B, or C): ").strip().upper()
+#evaluate the user choice and update the score, health, and oxygen
+if user_choice == "A":
+    if keycard == True:
+        ammunition = True
+        print("you discovered a spare ammunition magazine")
+    survivalPoints += exCh
+    timeRemaining -= 2
+    oxygen -= 4
+    keycard = True
+    print("You retrieve his security keycard. It grants access to restricted areas of the station.")
+    print("You gained Security Keycard Level 1.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "B":
+    survivalPoints += nuCh
+    timeRemaining -= 3
+    oxygen -= 6
+    power -= 5
+    print("You use your technical knowledge to override the checkpoint. The process works, but the terminal consumes some emergency power.")
+    print("you can now access the security checkpoint")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "C":
+    survivalPoints -= daCh
+    health -= 20
+    timeRemaining -= 5
+    oxygen -= 10
+    print("You repeatedly strike the door's control panel. Eventually, the door opens, but the damaged electrical system releases a powerful shock.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+
+
+#scenerio three
+#scenerio two
+print("-"*80)
+print("""
+Scenario 3: The Crew Quarters
+You enter the crew quarters.
+
+Personal belongings are scattered everywhere. Some beds appear to have been abandoned in a hurry. A coffee cup floats near the ceiling, and someone's personal computer is still running.
+
+You find a recording from Dr. Elena Vasquez, the station's lead scientist.
+
+"We made a mistake. The specimen wasn't dead. It was adapting. Captain ordered us to move it to the lower laboratory, but I don't think it should ever have been brought aboard."
+
+The recording ends abruptly.
+
+You hear a metallic scraping sound coming from the next room.
+
+What do you do?
+A 
+Choice A: Search the crew quarters for useful equipment.
+
+B 
+Choice B: Examine Dr. Vasquez's computer.
+
+C
+Choice C: Hide inside one of the sleeping compartments.
+""")
+#this will take the user choice and store it as a variable
+user_choice = input("Enter your choice ( A, B, C): ").strip().upper()
+while user_choice not in ["A", "B", "C"]:
+    print("Invalid input. Please choose A, B, or C.")
+    user_choice = input("Enter your choice (A, B, or C): ").strip().upper()
+#evaluate the user choice and update the score, health, and oxygen
+if user_choice == "A":
+    enePistol = True
+    eneAmmo = 1
+    if ammunition == True:
+        print("you load the weapon")
+    survivalPoints += exCh
+    timeRemaining -= 3
+    oxygen -= 6
+    print("You discover a compact energy pistol inside a locked storage compartment.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "B":
+    survivalPoints += goCh
+    timeRemaining -= 4
+    oxygen -= 8
+    creatureResearchData = True
+    engAccessCode = True
+    print("You discover a research report explaining that the creature is sensitive to intense electrical energy.")
+    print("You also find a partial access code for the engineering deck.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "C":
+    coin = ["Heads", "Tails"]
+    result = random.choice(coin)
+    if result == "Tails":
+        print("you fell asleep while hiding and suffocated before finding any other oxygen capsules")
+        sys.exit(0)
+    survivalPoints -= poCh
+    health -= 5
+    timeRemaining -= 5
+    oxygen -= 10
+    print("You wait for the noise to disappear. Unfortunately, the compartment has a damaged oxygen regulator, causing you to waste valuable breathable air.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+
+#Scenerio four
+print("-"*80)
+print("""
+Scenario 4: The Engineering Deck
+You reach the engineering deck.
+
+The reactor is unstable. Electrical sparks shoot from exposed cables, and the station's power supply is dangerously low.
+
+You discover that the reactor can be stabilized, but doing so requires a functioning control terminal.
+
+You also notice a maintenance locker containing several tools.
+
+What do you do?
+A
+Choice A: Use the engineering access code to stabilize the reactor.
+
+B 
+Choice B: Search the maintenance locker.
+
+C 
+Choice C: Attempt to restart the reactor without examining the controls.
+""")
+#this will take the user choice and store it as a variable
+user_choice = input("Enter your choice ( A, B, C): ").strip().upper()
+while user_choice not in ["A", "B", "C"]:
+    print("Invalid input. Please choose A, B, or C.")
+    user_choice = input("Enter your choice (A, B, or C): ").strip().upper()
+#evaluate the user choice and update the score, health, and oxygen
+if user_choice == "A":
+    power += 30
+    survivalPoints += exCh
+    timeRemaining -= 5
+    oxygen -= 10
+    print("You access the control terminal and successfully restart the auxiliary power system.")
+    print("The station's lights turn on, and several security doors become operational again.")
+
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "B":
+    electricalTool = True
+    powerCell = True
+    if ammunition == True:
+        if powerCell == True:
+            print("you forgot you aren't suppose to put the ammo and cell in the same pocket and exploded you legs causing you to bleed out")
+            sys.exit(0)
+    survivalPoints += goCh
+    timeRemaining -= 2
+    oxygen -= 4
+    print("You find a portable electrical tool and a spare power cell.")
+    print("These could help you repair equipment or defend yourself.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "C":
+    coin = ["Heads", "Tails"]
+    result = random.choice(coin)
+    if result == "Tails":
+        print("reactor explodes")
+        sys.exit(0)
+    survivalPoints -= daCh
+    health -= 10
+    timeRemaining -= 3
+    oxygen -= 6
+    power -= 15
+    print("You activate the wrong sequence. The reactor releases a small energy surge, damaging the surrounding equipment.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+
+#scenerio five
+print("-"*80)
+print("""
+Scenario 5: The Ventilation System
+You hear movement above you.
+
+The ventilation system runs throughout the entire station, connecting nearly every room. You approach a maintenance hatch and notice deep claw marks along its edges.
+
+Suddenly, your communication device activates.
+
+A distorted voice whispers:
+
+"Commander... it's not one of us anymore..."
+
+The transmission cuts out.
+
+You realize that whatever is inside the ventilation system may be following you.
+
+What do you do?
+A 
+Choice A: Use the electrical tool to overload the ventilation system.
+
+B 
+Choice B: Seal the ventilation access points.
+
+C 
+Choice C: Enter the ventilation system to investigate.
+
+""")
+#this will take the user choice and store it as a variable
+user_choice = input("Enter your choice ( A, B, C): ").strip().upper()
+while user_choice not in ["A", "B", "C"]:
+    print("Invalid input. Please choose A, B, or C.")
+    user_choice = input("Enter your choice (A, B, or C): ").strip().upper()
+#evaluate the user choice and update the score, health, and oxygen
+if user_choice == "A":
+    if electricalTool == False:
+        print("tool not inventory and unable to proceed")
+    power -= 10
+    survivalPoints += exCh
+    timeRemaining -= 3
+    oxygen -= 6
+    print("You redirect electricity into the ventilation fans. A loud screech echoes throughout the station.")
+    print("Something falls from the ventilation shaft and disappears into the darkness.")
+    print("At the moment you are safe and can rest assured you averted the main danger. Move with confidence but still move with caution")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    sys.exit(0)
+    
+elif user_choice == "B":
+    survivalPoints += goCh
+    timeRemaining -= 4
+    oxygen -= 8
+    print("You manually close the maintenance hatches and lock them.")
+    print("This temporarily restricts the creature's movement.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
+    
+elif user_choice == "C":
+    coin = ["Heads", "Tails"]
+    result = random.choice(coin)
+    if result == "Tails":
+        print("your head is eaten")
+        sys.exit(0)
+    survivalPoints -= daCh
+    health -= 25
+    timeRemaining -= 5
+    oxygen -= 10
+    print("You crawl inside with your flashlight. You discover strange biological material covering the walls")
+    print("Before you can turn around, something attacks from behind.")
+    print("You escape, but suffer serious injuries.")
+    #displays stats
+    display_statistics(health, oxygen, power, survivalPoints, timeRemaining)
