@@ -1,155 +1,84 @@
-# MS539-Programming-Concepts
-Grad course at the University of Advancing Technology
+ 
+# The Last Signal
 
+A Python-based, text-console survival adventure set aboard the Astra-9 research station. Players must make decisions, manage limited resources, collect equipment, and survive encounters with an unknown creature.
 
-# THE LAST SIGNAL 🚀
-### A Python Text-Based Space Survival Adventure
+## 1. Current Features
 
-## 📖 About the Game
+The current version includes:
 
-**The Last Signal** is a text-based science fiction survival adventure written in Python. The player wakes up alone aboard the *Astra-9*, an advanced research station orbiting an uncharted planet.
+- **Story Introduction:** Introduces the Astra-9 research station, the missing crew, failing systems, and the unidentified creature.
+- **Five Scenarios:** Players can explore the Medical Bay, Security Checkpoint, Crew Quarters, Engineering Deck, and Ventilation System.
+- **Interactive Choices:** Each scenario presents three choices (A, B, or C), with different consequences.
+- **Input Validation:** Accepts uppercase and lowercase choices and rejects invalid entries until a valid selection is provided.
+- **Player Statistics:** Tracks health, oxygen, power, survival points, and remaining time.
+- **Scoring System:** Rewards or penalizes players based on their decisions.
+- **Resource Management:** Player decisions affect oxygen, health, power, and available time.
+- **Item Collection:** Includes security keycards, ammunition, an energy pistol, an electrical tool, and a power cell.
+- **Random Events:** Uses Python's random module to introduce unpredictable outcomes, including dangerous encounters.
+- **Game Termination:** Certain dangerous events and outcomes immediately end the program.
 
-The station is damaged, its crew is missing, emergency power is failing, and an unidentified creature is moving through the ventilation system.
+## 2. Game Controls
 
-As the commander, your objective is to explore the station, collect resources, investigate the disappearance of the crew, and make decisions that determine whether you survive.
+The game uses a simple keyboard-based interface.
 
-Every decision has consequences. You must manage your health, oxygen, power, and remaining time while navigating the dangers of the station.
+| Input | Action |
+|---|---|
+| A | Select the first available choice |
+| B | Select the second available choice |
+| C | Select the third available choice |
+| Enter | Continue through the introduction and story prompts |
 
-## 🎮 Game Objectives
+Players should enter A, B, or C when prompted to make a decision. Inputs are automatically converted to uppercase, so lowercase letters are also accepted. Invalid entries will prompt the player to enter a valid choice.
 
-- Explore different areas of the abandoned space station.
-- Investigate the disappearance of the crew.
-- Collect useful equipment, keycards, weapons, and oxygen supplies.
-- Avoid or confront the unidentified creature.
-- Manage limited resources and survive dangerous encounters.
-- Decide whether to repair the station or escape.
+## 3. Running the Program
 
-## ⚙️ Gameplay Mechanics
+### Requirements
+- Python 3.x
+- A Python-compatible terminal or IDE (such as VS Code, IDLE, or PyCharm).
 
-The game uses a decision-based system where players select from three possible choices during each scenario.
+The program uses Python's built-in `random` and `sys` modules, so no external packages are required.
 
-Each decision affects the player's statistics and can influence future events and possible endings.
-
-### Player Statistics
-
-| Statistic | Starting Value | Description |
-|---|---:|---|
-| Health | 100 | Represents the player's physical condition. |
-| Oxygen | 100 | Represents the player's remaining breathable air. |
-| Power | 50 | Represents available station power resources. |
-| Survival Points | 0 | Measures the quality of the player's decisions. |
-| Time Remaining | 45 minutes | Represents the remaining survival time. |
-
-### Scoring System
-
-Player decisions are evaluated using a point system:
-
-| Points | Decision Rating | Description |
-|---:|---|---|
-| +10 | Excellent | Improves survival chances significantly. |
-| +5 | Good | Provides a useful advantage. |
-| 0 | Neutral | Neither helps nor hurts significantly. |
-| -5 | Poor | Creates additional problems. |
-| -10 | Dangerous | Puts survival at risk. |
-
-### Oxygen and Time Management
-
-Time advances with every decision, and oxygen decreases as time passes.
-
-| Time Passed | Oxygen Lost |
-|---:|---:|
-| 1 minute | 2 points |
-| 2 minutes | 4 points |
-| 3 minutes | 6 points |
-| 5 minutes | 10 points |
-
-**Survival Conditions:**
-- If health reaches zero, the player dies.
-- If oxygen reaches zero, the player dies.
-- Certain items can unlock additional opportunities.
-- Player decisions influence the final outcome.
-
-## 🧰 Starting Inventory
-
-The player begins with:
-- Emergency flashlight
-- Damaged communication device
-- Basic medical kit (one use)
-
-Additional equipment can be discovered throughout the adventure.
-
-## 🗺️ Story Progression
-
-The adventure is designed around 10 scenarios:
-
-1. **The Medical Bay** – Wake up aboard the Astra-9 and investigate the initial emergency.
-2. **The Security Checkpoint** – Find a way through the station's restricted security systems.
-3. **The Crew Quarters** – Investigate the missing crew and discover a mysterious recording.
-4. **The Engineering Deck** – Investigate the damaged reactor and restore station power.
-5. **The Ventilation System** – Encounter evidence of the unidentified creature.
-6. **The Research Laboratory** – Discover classified research and investigate the creature's origins.
-7. **The Command Center** – Access emergency protocols and determine the station's condition.
-8. **The Creature Revealed** – Face the unknown organism and attempt to survive.
-9. **The Final Preparation** – Prepare the escape pod or make a final attempt to save the station.
-10. **The Last Decision** – Decide the fate of the Astra-9.
-
-## 🏆 Possible Endings
-
-The game is designed to support multiple endings depending on player decisions, resources, and survival points.
-
-- **A New Beginning:** Successfully escape the station.
-- **Hero of Astra-9:** Contain the creature and stabilize the station.
-- **Lost in Deep Space:** Fail to survive the station's emergency.
-- **The Stowaway:** Escape the station, only to discover that the creature may have followed you.
-
-## 💻 Technologies Used
-
-- **Python 3**
-- Standard Python libraries and built-in functions
-- Console-based user interaction
-
-## 🧠 Python Concepts Practiced
-
-This project provides an opportunity to practice fundamental Python programming concepts, including:
-
-- Variables and data types
-- Functions and parameters
-- User input and output
-- Conditional statements (`if`, `elif`, `else`)
-- Arithmetic operations and resource calculations
-- String formatting using f-strings
-- Decision-based logic
-- Game-state management
-
-## ▶️ How to Run
-
-1. Clone or download this repository.
-2. Make sure Python 3 is installed.
-3. Open the project directory in your terminal or preferred IDE.
-4. Run the Python file:
+### Instructions
+1. Download or clone the project repository.
+2. Save the Python source code as `main.py`.
+3. Open a terminal in the directory containing the file.
+4. Run the following command:
 
 ```bash
 python main.py
 ```
 
-5. Follow the console instructions and enter your decisions when prompted.
+5. Follow the introduction and gameplay instructions.
+6. Enter A, B, or C when prompted to make decisions.
 
-## 🚧 Future Development
+## 4. Known Limitations
 
-Planned improvements include:
+The current version is an early-stage implementation, and several features are still being developed.
 
-- Implementing all 10 scenarios.
-- Developing a complete inventory management system.
-- Adding random creature encounters.
-- Implementing item collection and item usage.
-- Creating a dynamic oxygen and time management system.
-- Adding conditional story branches based on previous decisions.
-- Developing multiple endings based on player performance.
-- Adding a save and load feature.
-- Improving the user interface with formatted console messages.
+- **Incomplete Story:** Only the first five scenarios are currently implemented. Scenarios six through ten are not yet available.
+- **Limited Inventory Management:** Items are tracked using Boolean variables rather than a complete inventory system. The player cannot view or manage an inventory through a dedicated menu.
+- **Resource Monitoring:** Although oxygen is tracked, the statistics display function does not currently print the oxygen value.
+- **Game-State Validation:** Health, oxygen, power, and remaining time are not consistently checked for failure conditions after every decision.
+- **Item Requirements:** Some choices reference equipment without consistently preventing the player from selecting them when the required item is unavailable.
+- **Random Outcomes:** Certain choices use coin-flip outcomes that can immediately terminate the program.
+- **Ending System:** The complete branching ending system has not yet been implemented.
+- **Code Structure:** Scenario logic is currently written directly in the main program. Reusable functions and more organized game-state management are planned.
 
-## 🎯 Project Goal
+## 5. Planned Development
 
-The goal of **The Last Signal** is to create an interactive survival adventure that combines storytelling, resource management, and decision-making while strengthening Python programming skills.
+Future updates will expand the game and improve its functionality.
 
-**Every decision matters. Every minute counts. Will you survive the last signal?**
+- **Complete Story Progression:** Implement scenarios six through ten, including the Research Laboratory, Command Center, Creature Encounter, Final Preparation, and Last Decision.
+- **Improved Inventory System:** Develop a dedicated inventory system that allows players to collect, inspect, and use equipment.
+- **Advanced Resource Management:** Implement consistent oxygen consumption, health monitoring, power management, and time tracking.
+- **Conditional Choices:** Make certain decisions available only when the player possesses the required equipment, keycards, or access codes.
+- **Improved Random Events:** Expand random encounters and introduce more varied consequences.
+- **Creature Interaction:** Develop additional mechanics for avoiding, defending against, or containing the creature.
+- **Multiple Endings:** Introduce branching endings based on player decisions, collected items, survival statistics, and completed objectives.
+- **Code Optimization:** Organize scenarios into reusable functions to improve readability, reduce repeated code, and simplify future development.
+- **Improved User Interface:** Add clearer menus, inventory displays, and more detailed player-statistics updates.
+
+---
+
+**Project Goal:** Develop a beginner-friendly Python adventure game that demonstrates programming fundamentals through interactive storytelling, conditional logic, resource management, random events, and decision-based gameplay.
